@@ -1,0 +1,27 @@
+config storage
+
+postgree:
+
+- docker pull postgres:15-alpine
+- docker run --name postgres15 -p 5433:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=password -d postgres:15-alpine
+
+创建一个数据库
+- docker it postgres15 createdb --username=root --owner=root realtime
+
+确定数据库是否创建了
+- docker exec -it postgres15 psql
+
+查看数据库
+- \l 
+
+退出
+- exit
+
+删除数据库
+- docker exec -it postgres15 dropdb realtime
+
+使用migrate 创建users表
+- migrate create -ext sql -dir db/migrations add_users_table
+
+设置path
+- migrate -path db/migrations -database "postgresql://root:password@localhost:5433/realtime?sslmode=disable" -verbose up
