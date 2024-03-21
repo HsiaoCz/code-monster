@@ -5,6 +5,7 @@ go 1.21.3
 require (
 	github.com/gofiber/fiber/v2 v2.52.2
 	github.com/lib/pq v1.10.9
+	github.com/sirupsen/logrus v1.9.3
 	golang.org/x/crypto v0.21.0
 )
 
