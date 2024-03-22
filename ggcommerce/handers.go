@@ -6,11 +6,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type ProductStorer interface {
-	Insert(*Product) error
-	GetProductByID(string) (*Product, error)
-}
-
 type ProductHandler struct {
 	store ProductStorer
 }
@@ -32,6 +27,25 @@ func (p *ProductHandler) HandlePostProduct(c *fiber.Ctx) error {
 			"Message": err.Error(),
 		})
 	}
+
+	if err := ValidateCreateProductRequest(productReq); err != nil {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"Message": err.Error(),
+		})
+	}
+
+	product := &Product{
+		SKU:  productReq.SKU,
+		Name: productReq.Name,
+		Slug: "SHOE",
+	}
+
+	if err := p.store.Insert(product); err != nil {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"Message": err.Error(),
+		})
+	}
+
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"Message": "post product successed!",
 	})
