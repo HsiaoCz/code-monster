@@ -4,27 +4,31 @@ import (
 	"context"
 	"encoding/json"
 	"log/slog"
+	"math"
+	"math/rand"
 	"net/http"
+	"time"
+
+	"github.com/HsiaoCz/code-monster/pfetcher/types"
 )
 
-type PriceResponse struct {
-	Ticker string  `json:"ticker"`
-	Price  float64 `json:"price"`
-}
+type Key string
 
 type JSONAPIServer struct {
-	svc Pricefetcher
+	listenAddr string
+	svc        Pricefetcher
 }
 
-func NewJsonApiServer(svc Pricefetcher) *JSONAPIServer {
+func NewJsonApiServer(listenAddr string, svc Pricefetcher) *JSONAPIServer {
 	return &JSONAPIServer{
-		svc: svc,
+		listenAddr: listenAddr,
+		svc:        svc,
 	}
 }
 
 func (s *JSONAPIServer) Run() {
 	http.HandleFunc("/price", transHandler(s.handleFetchPrice))
-	http.ListenAndServe(":9021", nil)
+	http.ListenAndServe(s.listenAddr, nil)
 }
 
 func (s *JSONAPIServer) handleFetchPrice(ctx context.Context, w http.ResponseWriter, r *http.Request) error {
@@ -34,7 +38,7 @@ func (s *JSONAPIServer) handleFetchPrice(ctx context.Context, w http.ResponseWri
 	if err != nil {
 		return err
 	}
-	return WriteJson(w, http.StatusOK, &PriceResponse{
+	return WriteJson(w, http.StatusOK, &types.PriceResponse{
 		Ticker: ticker,
 		Price:  price,
 	})
@@ -51,6 +55,7 @@ type Handler func(context.Context, http.ResponseWriter, *http.Request) error
 func transHandler(h Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		ctx := context.Background()
+		ctx = context.WithValue(ctx, Key("requestID"), rand.New(rand.NewSource(time.Now().UnixNano())).Intn(math.MaxInt))
 		if err := h(ctx, w, r); err != nil {
 			slog.Error("error", "err", err)
 			WriteJson(w, http.StatusInternalServerError, map[string]any{
