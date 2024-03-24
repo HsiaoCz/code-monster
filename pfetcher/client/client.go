@@ -5,7 +5,10 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/HsiaoCz/code-monster/pfetcher/protopkg"
 	"github.com/HsiaoCz/code-monster/pfetcher/types"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 type Client struct {
@@ -35,4 +38,12 @@ func (c *Client) FetchPrice(ctx context.Context, ticker string) (*types.PriceRes
 		return nil, err
 	}
 	return priceResp, nil
+}
+
+func NewGRPCClient(remoteAddr string) (protopkg.PriceFetcherClient, error) {
+	conn, err := grpc.Dial(remoteAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		return nil, err
+	}
+	return protopkg.NewPriceFetcherClient(conn), err
 }
