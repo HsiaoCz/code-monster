@@ -4,9 +4,11 @@ go 1.21.3
 
 require (
 	github.com/anthdm/hollywood v0.0.0-20240115210651-dd34702ee21f
+	github.com/go-kit/kit v0.13.0
 	github.com/go-kit/log v0.2.0
 	github.com/gofiber/fiber/v2 v2.52.2
 	github.com/google/uuid v1.6.0
+	github.com/gorilla/mux v1.8.1
 	github.com/gorilla/websocket v1.5.1
 	github.com/lib/pq v1.10.9
 	github.com/sirupsen/logrus v1.9.3
