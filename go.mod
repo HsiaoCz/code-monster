@@ -3,6 +3,7 @@ module github.com/HsiaoCz/code-monster
 go 1.21.3
 
 require (
+	github.com/VictorLowther/btree v0.1.5
 	github.com/anthdm/hollywood v0.0.0-20240115210651-dd34702ee21f
 	github.com/go-kit/kit v0.13.0
 	github.com/go-kit/log v0.2.0
