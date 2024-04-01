@@ -29,3 +29,12 @@ func (u *UpdateUserParams) ToBSON() bson.M {
 	}
 	return m
 }
+
+type APIError struct {
+	Status  int    `json:"status"`
+	Message string `json:"message"`
+}
+
+func (a APIError) Error() string {
+	return a.Message
+}
