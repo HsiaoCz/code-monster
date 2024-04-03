@@ -2,6 +2,9 @@ package store
 
 import "go.mongodb.org/mongo-driver/mongo"
 
+const DBNAME = ""
+const COLL = ""
+
 type UserStorer interface{}
 
 type MongoUserStoer struct {
@@ -9,4 +12,9 @@ type MongoUserStoer struct {
 	coll   *mongo.Collection
 }
 
-func NewMongoUserStore() {}
+func NewMongoUserStore(client *mongo.Client) *MongoUserStoer {
+	return &MongoUserStoer{
+		client: client,
+		coll:   client.Database(DBNAME).Collection(COLL),
+	}
+}
