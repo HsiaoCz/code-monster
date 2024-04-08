@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package pb;
+
+option go_package="./;pb";
+
+service Lost{
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {};
+}
+
+message CreateUserRequest{
+    string firstname =1;
+    string lastname =2;
+    string password =3;
+    string email=4;
+}
+
+message CreateUserResponse{
+    string ID=1;
+    string firstname=2;
+    string lastname=3;
+    string email=4;
+}
