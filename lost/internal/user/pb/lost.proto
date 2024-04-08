@@ -6,6 +6,8 @@ option go_package="./;pb";
 
 service Lost{
     rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {};
+    rpc UserLogin(UserLoginRequest) returns (UserLoginResponse){};
+    rpc GetUserByID(GetUserByIDRequest) returns (GetUserByIDResponse){};
 }
 
 message CreateUserRequest{
@@ -21,3 +23,14 @@ message CreateUserResponse{
     string lastname=3;
     string email=4;
 }
+
+message UserLoginRequest{
+    string email=1;
+    string password=2;
+}
+message UserLoginResponse{
+    string msg=1;
+}
+
+message GetUserByIDRequest{}
+message GetUserByIDResponse{}
