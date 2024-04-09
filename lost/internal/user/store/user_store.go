@@ -4,6 +4,8 @@ import (
 	"context"
 
 	"github.com/HsiaoCz/code-monster/lost/internal/user/types"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -24,5 +26,14 @@ func NewMongoUserStore(client *mongo.Client) *MongoUserStore {
 }
 
 func (m *MongoUserStore) CreateUser(ctx context.Context, user *types.User) (*types.User, error) {
-	return nil, nil
+	_, err := m.coll.Find(ctx, bson.M{"email": user.Email})
+	if err != nil {
+		return nil, err
+	}
+	res, err := m.coll.InsertOne(ctx, user)
+	if err != nil {
+		return nil, err
+	}
+	user.ID = res.InsertedID.(primitive.ObjectID).String()
+	return user, nil
 }
