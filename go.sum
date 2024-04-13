@@ -2,6 +2,8 @@ github.com/DataDog/gostackparse v0.7.0 h1:i7dLkXHvYzHV308hnkvVGDL3BR4FWl7IsXNPz/
 github.com/DataDog/gostackparse v0.7.0/go.mod h1:lTfqcJKqS9KnXQGnyQMCugq3u1FP6UZMfWR0aitKFMM=
 github.com/VictorLowther/btree v0.1.5 h1:hRVrUXluXGaM2gixwBNzHZKSfdEChxwE9xoJbpjOjNw=
 github.com/VictorLowther/btree v0.1.5/go.mod h1:73GC9R2Z6EgWoVKMSeK4xMp9HIdiZjqCH+k/jshacww=
+github.com/a-h/templ v0.2.663 h1:aa0WMm27InkYHGjimcM7us6hJ6BLhg98ZbfaiDPyjHE=
+github.com/a-h/templ v0.2.663/go.mod h1:SA7mtYwVEajbIXFRh3vKdYm/4FYyLQAtPH1+KxzGPA8=
 github.com/andybalholm/brotli v1.0.5 h1:8uQZIdzKmjc/iuPu7O2ioW48L81FgatrcpfFmiq/cCs=
 github.com/andybalholm/brotli v1.0.5/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHGRSepvi9Eig=
 github.com/anthdm/hollywood v0.0.0-20240115210651-dd34702ee21f h1:3n5dZYMbXDDgdj2oIw7pD0EIG1nxeu3ZdtEsKxu8u1o=

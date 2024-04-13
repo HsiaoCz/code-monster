@@ -1,0 +1,16 @@
+package uservs
+
+import "github.com/HsiaoCz/code-monster/templs/views/layout"
+import "github.com/HsiaoCz/code-monster/templs/models"
+import "github.com/HsiaoCz/code-monster/templs/views/components"
+
+templ Show(user models.User) {
+	@layout.Base() {
+		<h1>Hello { user.Username } from the user page</h1>
+		<h1>This is your email { user.Email }</h1>
+		@components.Input(components.InputProps{
+			Typ:  "email",
+			Name: "email",
+		})
+	}
+}
