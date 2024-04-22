@@ -1,5 +1,16 @@
 package usersv
 
-templ Show(){
-    
+import "github.com/HsiaoCz/code-monster/stdtmp/types"
+import "github.com/HsiaoCz/code-monster/stdtmp/views/layout"
+import "github.com/HsiaoCz/code-monster/stdtmp/views/components"
+
+templ Show(user types.User) {
+	@layout.Base() {
+		<h1>Hello { user.Username } from the user page</h1>
+		<h1>This is your email { user.Email }</h1>
+		@components.Input(components.InputProps{
+			Typ:  "email",
+			Name: "email",
+		})
+	}
 }

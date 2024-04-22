@@ -1,14 +1,14 @@
 module github.com/HsiaoCz/code-monster
 
-go 1.21.3
+go 1.22.1
 
 require (
 	github.com/VictorLowther/btree v0.1.5
 	github.com/a-h/templ v0.2.663
 	github.com/anthdm/hollywood v0.0.0-20240115210651-dd34702ee21f
 	github.com/go-kit/kit v0.13.0
-	github.com/go-kit/log v0.2.0
-	github.com/gofiber/fiber/v2 v2.52.2
+	github.com/go-kit/log v0.2.1
+	github.com/gofiber/fiber/v2 v2.52.4
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.1
@@ -16,10 +16,10 @@ require (
 	github.com/joho/godotenv v1.5.1
 	github.com/lib/pq v1.10.9
 	github.com/sirupsen/logrus v1.9.3
-	go.mongodb.org/mongo-driver v1.14.0
-	golang.org/x/crypto v0.21.0
-	golang.org/x/net v0.21.0
-	google.golang.org/grpc v1.62.1
+	go.mongodb.org/mongo-driver v1.15.0
+	golang.org/x/crypto v0.22.0
+	golang.org/x/net v0.24.0
+	google.golang.org/grpc v1.63.2
 	google.golang.org/protobuf v1.33.0
 )
 
@@ -27,7 +27,6 @@ require (
 	github.com/DataDog/gostackparse v0.7.0 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/go-logfmt/logfmt v0.5.1 // indirect
-	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
@@ -45,7 +44,7 @@ require (
 	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
 	golang.org/x/sync v0.6.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
+	golang.org/x/sys v0.19.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240123012728-ef4313101c80 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240227224415-6ceb2ff114de // indirect
 )
