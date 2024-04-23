@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package protos;
+
+option go_package="./;protos";
+
+service Grpcs{
+    rpc GetUsers(GetUsersReq) returns (GetUsersResp){}
+}
+
+message User {
+    string ID=1;
+    string username=2;
+    string email=3;
+}
+
+message GetUsersReq{}
+
+message GetUsersResp{
+    repeated User users=1;
+}
