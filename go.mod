@@ -6,6 +6,7 @@ require (
 	github.com/VictorLowther/btree v0.1.5
 	github.com/a-h/templ v0.2.663
 	github.com/anthdm/hollywood v0.0.0-20240115210651-dd34702ee21f
+	github.com/go-chi/chi/v5 v5.0.12
 	github.com/go-kit/kit v0.13.0
 	github.com/go-kit/log v0.2.1
 	github.com/gofiber/fiber/v2 v2.52.4
@@ -17,6 +18,7 @@ require (
 	github.com/lib/pq v1.10.9
 	github.com/sirupsen/logrus v1.9.3
 	go.mongodb.org/mongo-driver v1.15.0
+	go.uber.org/fx v1.21.1
 	golang.org/x/crypto v0.22.0
 	golang.org/x/net v0.24.0
 	google.golang.org/grpc v1.63.2
@@ -43,6 +45,9 @@ require (
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
+	go.uber.org/dig v1.17.1 // indirect
+	go.uber.org/multierr v1.10.0 // indirect
+	go.uber.org/zap v1.26.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
