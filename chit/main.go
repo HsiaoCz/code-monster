@@ -1,12 +1,16 @@
 package main
 
 import (
+	"context"
 	"log"
 	"log/slog"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
+	"github.com/HsiaoCz/code-monster/chit/config"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/joho/godotenv"
@@ -26,10 +30,9 @@ func main() {
 		w.Write([]byte("hello"))
 	})
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = ":9001"
-	}
+	var (
+		port = config.GetPort("PORT")
+	)
 
 	srv := http.Server{
 		Handler:      router,
@@ -38,5 +41,22 @@ func main() {
 		WriteTimeout: time.Millisecond * 1500,
 	}
 	slog.Info("the server is running", "port", port)
-	log.Fatal(srv.ListenAndServe())
+
+	go func() {
+		if err := srv.ListenAndServe(); err != nil {
+			log.Fatalf("the server running error %v\n", err)
+		}
+	}()
+
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
+
+	<-quit
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
+	defer cancel()
+
+	if err := srv.Shutdown(ctx); err != nil {
+		log.Fatalf("the server shutdown error %v\n", err)
+	}
 }
