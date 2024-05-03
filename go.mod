@@ -6,6 +6,7 @@ require (
 	github.com/VictorLowther/btree v0.1.5
 	github.com/a-h/templ v0.2.663
 	github.com/anthdm/hollywood v0.0.0-20240115210651-dd34702ee21f
+	github.com/boltdb/bolt v1.3.1
 	github.com/go-chi/chi/v5 v5.0.12
 	github.com/go-kit/kit v0.13.0
 	github.com/go-kit/log v0.2.1
@@ -14,6 +15,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.1
 	github.com/gorilla/websocket v1.5.1
+	github.com/henomis/lingoose v0.1.2
 	github.com/joho/godotenv v1.5.1
 	github.com/lib/pq v1.10.9
 	github.com/sirupsen/logrus v1.9.3
@@ -30,13 +32,17 @@ require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
+	github.com/iancoleman/orderedmap v0.0.0-20190318233801-ac98e3ecb4b0 // indirect
+	github.com/invopop/jsonschema v0.7.0 // indirect
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/sashabaranov/go-openai v1.19.2 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
