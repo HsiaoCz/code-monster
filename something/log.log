@@ -1,0 +1,18 @@
+{"time":"2024-05-15T11:51:20.638604266+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T11:51:53.091815493+08:00","level":"INFO","msg":"new request comming","method":"GET","path":"/user/show","remote address":"127.0.0.1:44106"}
+{"time":"2024-05-15T11:54:17.357834497+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T11:54:28.087892508+08:00","level":"INFO","msg":"http: panic serving 127.0.0.1:55044: runtime error: invalid memory address or nil pointer dereference\ngoroutine 6 [running]:\nnet/http.(*conn).serve.func1()\n\t/usr/lib/go-1.22/src/net/http/server.go:1898 +0xbe\npanic({0x693b00?, 0x906a90?})\n\t/usr/lib/go-1.22/src/runtime/panic.go:770 +0x132\nmain.main.TransferHandlerfunc.func1({0x7584d8, 0xc0001820e0}, 0xc0000c46c0)\n\t/home/hsiaocz/code-monster/something/shard.go:36 +0x310\nnet/http.HandlerFunc.ServeHTTP(0xc0000aaa90?, {0x7584d8?, 0xc0001820e0?}, 0x617b7a?)\n\t/usr/lib/go-1.22/src/net/http/server.go:2166 +0x29\nnet/http.(*ServeMux).ServeHTTP(0x467fb9?, {0x7584d8, 0xc0001820e0}, 0xc0000c46c0)\n\t/usr/lib/go-1.22/src/net/http/server.go:2683 +0x1ad\nnet/http.serverHandler.ServeHTTP({0xc0000a92f0?}, {0x7584d8?, 0xc0001820e0?}, 0x6?)\n\t/usr/lib/go-1.22/src/net/http/server.go:3137 +0x8e\nnet/http.(*conn).serve(0xc0000c2240, {0x758b08, 0xc0000a9200})\n\t/usr/lib/go-1.22/src/net/http/server.go:2039 +0x5e8\ncreated by net/http.(*Server).Serve in goroutine 1\n\t/usr/lib/go-1.22/src/net/http/server.go:3285 +0x4b4"}
+{"time":"2024-05-15T11:55:39.594040581+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T11:55:44.619304365+08:00","level":"INFO","msg":"new request comming","method":"GET","code":200,"path":"/user/show","remote address":"127.0.0.1:60980"}
+{"time":"2024-05-15T11:58:45.61276714+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T11:58:50.475677571+08:00","level":"INFO","msg":"new request comming","method":"GET","code":0,"path":"/user/show","remote address":"127.0.0.1:54900"}
+{"time":"2024-05-15T12:01:38.724121965+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T12:01:43.290150363+08:00","level":"INFO","msg":"new request comming","method":"GET","code":0,"path":"/user/show","remote address":"127.0.0.1:38702"}
+{"time":"2024-05-15T12:04:05.464678411+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T12:04:11.244592196+08:00","level":"INFO","msg":"new request comming","method":"GET","code":200,"path":"/user/show","remote address":"127.0.0.1:40874"}
+{"time":"2024-05-15T12:06:00.618586185+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T12:06:04.746859905+08:00","level":"ERROR","msg":"the http server error","method":"GET","path":"/user/show","remote address":"127.0.0.1:57788","error message":"request refuesed!"}
+{"time":"2024-05-15T12:06:04.746972987+08:00","level":"INFO","msg":"new request comming","method":"GET","code":200,"path":"/user/show","remote address":"127.0.0.1:57788"}
+{"time":"2024-05-15T12:07:31.23733808+08:00","level":"INFO","msg":"the http server is running","listen address":":3001"}
+{"time":"2024-05-15T12:07:34.602746146+08:00","level":"ERROR","msg":"the http server error","method":"GET","path":"/user/show","remote address":"127.0.0.1:39778","error message":"request refuesed!"}
+{"time":"2024-05-15T12:07:34.602850016+08:00","level":"INFO","msg":"new request comming","method":"GET","code":500,"path":"/user/show","remote address":"127.0.0.1:39778"}
