@@ -14,3 +14,9 @@ templ Show(user models.User) {
 		})
 	}
 }
+
+templ Hello(user models.User){
+	@layout.Base(){
+		<h1>Hello {user.Username} from the user page</h1>
+	}
+}
