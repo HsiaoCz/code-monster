@@ -23,6 +23,7 @@ require (
 	go.mongodb.org/mongo-driver v1.15.0
 	go.uber.org/fx v1.21.1
 	golang.org/x/crypto v0.22.0
+	golang.org/x/exp v0.0.0-20231226003508-02704c960a9b
 	golang.org/x/net v0.24.0
 	google.golang.org/grpc v1.63.2
 	google.golang.org/protobuf v1.33.0

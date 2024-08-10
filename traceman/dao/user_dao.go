@@ -1,9 +1,39 @@
 package dao
 
-import "context"
+import (
+	"context"
 
-type UserCaser interface{
-	CreateUser(context.Context)
+	"github.com/HsiaoCz/code-monster/traceman/types"
+	"github.com/sirupsen/logrus"
+	"gorm.io/gorm"
+)
+
+type UserCaser interface {
+	CreateUser(context.Context, *types.User) (*types.User, error)
+	GetUserByID(context.Context, string) (*types.User, error)
 }
 
-type UserDao struct{}
+type UserCase struct {
+	db *gorm.DB
+}
+
+func UserCaseInit(db *gorm.DB) *UserCase {
+	return &UserCase{
+		db: db,
+	}
+}
+
+func (u *UserCase) CreateUser(ctx context.Context, user *types.User) (*types.User, error) {
+	tx := u.db.WithContext(ctx).Debug().Model(&types.User{}).Create(user)
+	if tx.Error != nil {
+		return nil, tx.Error
+	}
+	logrus.WithFields(logrus.Fields{
+		"RequestID": ctx.Value(types.CtxRequestIDKey).(int64),
+	}).Info("create user request")
+	return user, nil
+}
+
+func (u *UserCase) GetUserByID(ctx context.Context, id string) (*types.User, error) {
+	return nil, nil
+}
