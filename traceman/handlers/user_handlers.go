@@ -41,3 +41,14 @@ func (u *UserHandlers) GetUserByID(w http.ResponseWriter, r *http.Request) error
 	}
 	return WriteJson(w, http.StatusOK, user)
 }
+
+func (u *UserHandlers) HandleDeleteUser(w http.ResponseWriter, r *http.Request) error {
+	id := r.URL.Query().Get("uid")
+	if err := u.user.DeleteUserByID(r.Context(), id); err != nil {
+		return ErrorMessage(http.StatusInternalServerError, err.Error())
+	}
+	return WriteJson(w, http.StatusOK, Map{
+		"status":  http.StatusOK,
+		"message": "delete user success",
+	})
+}
