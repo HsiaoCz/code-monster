@@ -31,6 +31,7 @@ func main() {
 
 	{
 		router.HandleFunc("POST /user", handlers.TransferHandlerfunc(userHandler.HandleUserCreate))
+		router.HandleFunc("GET /user", handlers.TransferHandlerfunc(userHandler.GetUserByID))
 	}
 	logrus.WithFields(logrus.Fields{
 		"listen address": port,

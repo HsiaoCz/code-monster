@@ -32,3 +32,12 @@ func (u *UserHandlers) HandleUserCreate(w http.ResponseWriter, r *http.Request) 
 	}
 	return WriteJson(w, http.StatusOK, user)
 }
+
+func (u *UserHandlers) GetUserByID(w http.ResponseWriter, r *http.Request) error {
+	uid := r.URL.Query().Get("uid")
+	user, err := u.user.GetUserByID(r.Context(), uid)
+	if err != nil {
+		return ErrorMessage(http.StatusBadRequest, err.Error())
+	}
+	return WriteJson(w, http.StatusOK, user)
+}
